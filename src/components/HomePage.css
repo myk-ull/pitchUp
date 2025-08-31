@@ -1,0 +1,216 @@
+.home-page {
+  min-height: 100vh;
+  background-color: #000000;
+}
+
+.app-title {
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+.header-actions {
+  display: flex;
+  gap: 15px;
+}
+
+.icon-btn {
+  background: transparent;
+  color: #ffffff;
+  padding: 8px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s;
+}
+
+.icon-btn:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.notification-banner {
+  text-align: center;
+  padding: 60px 20px;
+  margin: 40px 0;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.02) 100%);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.notification-icon {
+  margin-bottom: 20px;
+  display: inline-block;
+  padding: 15px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+}
+
+.notification-banner h2 {
+  font-size: 28px;
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+
+.time-remaining {
+  font-size: 48px;
+  font-weight: 700;
+  color: #ff0000;
+  margin: 20px 0;
+  font-variant-numeric: tabular-nums;
+}
+
+.record-btn-large {
+  background: #ffffff;
+  color: #000000;
+  padding: 20px 40px;
+  border-radius: 50px;
+  font-size: 18px;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 30px;
+  transition: all 0.3s;
+}
+
+.record-btn-large:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 30px rgba(255, 255, 255, 0.2);
+}
+
+.waiting-state {
+  text-align: center;
+  padding: 80px 20px;
+  margin: 40px 0;
+}
+
+.empty-state-icon {
+  margin-bottom: 30px;
+  opacity: 0.3;
+}
+
+.waiting-state h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.waiting-state p {
+  color: rgba(255, 255, 255, 0.6);
+  margin-bottom: 10px;
+}
+
+.hint {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.3);
+  margin-top: 20px;
+}
+
+.recent-pitches {
+  margin: 60px 0;
+}
+
+.recent-pitches h3 {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.pitch-list {
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 15px;
+  padding: 20px;
+}
+
+.empty-pitches {
+  text-align: center;
+  padding: 40px 20px;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.feed-btn {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.05);
+  color: #ffffff;
+  padding: 18px;
+  border-radius: 15px;
+  font-size: 16px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 30px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.feed-btn:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.user-info {
+  margin-top: 30px;
+  padding: 10px 20px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 20px;
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.5);
+  display: inline-block;
+}
+
+.pitch-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  margin-bottom: 8px;
+}
+
+.pitch-item:last-child {
+  margin-bottom: 0;
+}
+
+.pitch-play-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.pitch-play-btn:hover {
+  background: rgba(255, 255, 255, 0.15);
+  transform: scale(1.05);
+}
+
+.pitch-info {
+  flex: 1;
+}
+
+.pitch-date {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.5);
+  margin-bottom: 4px;
+}
+
+.pitch-caption {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.pitch-duration {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.5);
+  font-variant-numeric: tabular-nums;
+}

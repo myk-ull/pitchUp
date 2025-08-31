@@ -1,0 +1,271 @@
+.friends-page {
+  min-height: 100vh;
+  background: #000;
+  color: #fff;
+  padding-bottom: 80px;
+}
+
+.friends-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+  border-bottom: 1px solid #222;
+}
+
+.friends-header h1 {
+  font-size: 20px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.back-btn {
+  background: none;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.header-spacer {
+  width: 40px;
+}
+
+.friends-tabs {
+  display: flex;
+  border-bottom: 1px solid #222;
+  padding: 0 20px;
+}
+
+.tab {
+  flex: 1;
+  background: none;
+  border: none;
+  color: #666;
+  padding: 15px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  position: relative;
+  transition: color 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.tab.active {
+  color: #fff;
+}
+
+.tab.active::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: #fff;
+}
+
+.badge {
+  background: #ff0066;
+  color: #fff;
+  font-size: 11px;
+  padding: 2px 6px;
+  border-radius: 10px;
+  margin-left: 4px;
+}
+
+.friends-content {
+  padding: 20px;
+}
+
+.friends-list,
+.requests-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.friend-item,
+.request-item,
+.user-result {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
+  background: #111;
+  border-radius: 12px;
+}
+
+.friend-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: #333;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  font-weight: 600;
+  color: #fff;
+}
+
+.friend-info {
+  flex: 1;
+}
+
+.friend-username {
+  font-size: 16px;
+  font-weight: 500;
+  margin-bottom: 4px;
+}
+
+.friend-status {
+  font-size: 13px;
+  color: #666;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.remove-btn,
+.accept-btn,
+.decline-btn {
+  background: none;
+  border: none;
+  color: #666;
+  cursor: pointer;
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  transition: all 0.2s;
+}
+
+.remove-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #ff3333;
+}
+
+.accept-btn {
+  background: #00cc44;
+  color: #fff;
+}
+
+.accept-btn:hover {
+  background: #00aa33;
+}
+
+.decline-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #ff3333;
+}
+
+.request-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 40px 20px;
+  color: #666;
+}
+
+.empty-state p {
+  margin-bottom: 20px;
+  font-size: 16px;
+}
+
+.add-friends-btn {
+  background: #fff;
+  color: #000;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 30px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.search-container {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: #111;
+  border-radius: 12px;
+  padding: 12px;
+  margin-bottom: 20px;
+}
+
+.search-container input {
+  flex: 1;
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 16px;
+  outline: none;
+}
+
+.search-container input::placeholder {
+  color: #666;
+}
+
+.search-btn {
+  background: #fff;
+  color: #000;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.search-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.search-results {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.add-btn {
+  background: #fff;
+  color: #000;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.2s;
+}
+
+.add-btn.requested {
+  background: #00cc44;
+  color: #fff;
+}
+
+.add-btn:disabled {
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.loading {
+  text-align: center;
+  color: #666;
+  padding: 20px;
+}

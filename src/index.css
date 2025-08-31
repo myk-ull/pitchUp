@@ -5,9 +5,73 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #000000;
+  color: #ffffff;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+@keyframes slideDown {
+  from {
+    transform: translate(-50%, -100px);
+    opacity: 0;
+  }
+  to {
+    transform: translate(-50%, 0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translate(-50%, 0);
+    opacity: 1;
+  }
+  to {
+    transform: translate(-50%, -100px);
+    opacity: 0;
+  }
+}
+
+.notification-content {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.notification-icon {
+  font-size: 24px;
+}
+
+.notification-text {
+  flex: 1;
+}
+
+.notification-text strong {
+  display: block;
+  margin-bottom: 4px;
+}
+
+.notification-text p {
+  margin: 0;
+  font-size: 14px;
+  opacity: 0.8;
+}
+
+.notification-action {
+  background: #000000;
+  color: #ffffff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 20px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.notification-action:hover {
+  transform: scale(1.05);
 }
