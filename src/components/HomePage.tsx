@@ -125,7 +125,6 @@ const HomePage: React.FC<HomePageProps> = ({ notificationActive, timeRemaining }
             </div>
             <h2>Waiting for next Pitch Up...</h2>
             <p>Your notification will arrive at a random time today</p>
-            <p className="hint">Press Ctrl+Shift+D to open debug panel</p>
             {user?.email && (
               <p className="user-info">Signed in as: {user.email}</p>
             )}

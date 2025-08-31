@@ -1,6 +1,7 @@
 class NotificationService {
   private static instance: NotificationService;
   private notificationSound: HTMLAudioElement | null = null;
+  private notificationCallback: (() => void) | null = null;
 
   private constructor() {
     this.requestPermission();
@@ -13,13 +14,47 @@ class NotificationService {
     return NotificationService.instance;
   }
 
-  async requestPermission(): Promise<void> {
-    if ('Notification' in window && Notification.permission === 'default') {
-      await Notification.requestPermission();
+  async requestPermission(): Promise<boolean> {
+    // Check if notifications are supported
+    if (!('Notification' in window)) {
+      // iOS Safari doesn't support Notification API but we can still use in-app notifications
+      console.info('Browser notifications not supported, will use in-app notifications');
+      return true; // Return true to allow in-app notifications
     }
+    
+    if (Notification.permission === 'granted') {
+      return true;
+    }
+    
+    if (Notification.permission === 'default') {
+      try {
+        const permission = await Notification.requestPermission();
+        return permission === 'granted';
+      } catch (error) {
+        // iOS Safari might throw an error
+        console.info('Notification permission request failed, will use in-app notifications');
+        return true; // Allow in-app notifications as fallback
+      }
+    }
+    
+    // Permission was denied
+    return false;
+  }
+  
+  isNotificationSupported(): boolean {
+    return 'Notification' in window;
+  }
+
+  setNotificationCallback(callback: () => void): void {
+    this.notificationCallback = callback;
   }
 
   showNotification(): void {
+    // Trigger the callback to update app state
+    if (this.notificationCallback) {
+      this.notificationCallback();
+    }
+    
     if ('Notification' in window && Notification.permission === 'granted') {
       const notification = new Notification('⚡ Time to Pitch Up!', {
         body: '2 minutes to record your audio pitch',
@@ -116,12 +151,34 @@ class NotificationService {
   }
 
   scheduleRandomNotification(): void {
-    const minDelay = 5 * 60 * 1000;
-    const maxDelay = 30 * 60 * 1000;
+    // Schedule between 8am and 10pm local time
+    const now = new Date();
+    const currentHour = now.getHours();
+    
+    // If outside allowed hours, schedule for next morning
+    if (currentHour >= 22 || currentHour < 8) {
+      const tomorrow = new Date(now);
+      tomorrow.setDate(tomorrow.getDate() + (currentHour >= 22 ? 1 : 0));
+      tomorrow.setHours(8 + Math.floor(Math.random() * 2), Math.floor(Math.random() * 60), 0, 0);
+      const delay = tomorrow.getTime() - now.getTime();
+      
+      setTimeout(() => {
+        this.showNotification();
+        // Schedule next notification after this one
+        this.scheduleRandomNotification();
+      }, delay);
+      return;
+    }
+    
+    // Schedule random notification between 30 minutes and 3 hours from now
+    const minDelay = 30 * 60 * 1000;  // 30 minutes
+    const maxDelay = 3 * 60 * 60 * 1000;  // 3 hours
     const delay = Math.random() * (maxDelay - minDelay) + minDelay;
 
     setTimeout(() => {
       this.showNotification();
+      // Schedule next notification after this one
+      this.scheduleRandomNotification();
     }, delay);
   }
 }
